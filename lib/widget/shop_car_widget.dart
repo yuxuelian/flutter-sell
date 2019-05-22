@@ -6,6 +6,8 @@ import '../provide/index.dart';
 import 'my_bottom_sheet.dart';
 import 'shop_car_list_widget.dart';
 
+// 购物车
+
 class ShopCar extends StatefulWidget {
   ShopCar({Key key}) : super(key: key);
 

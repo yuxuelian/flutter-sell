@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
         canvasColor: Colors.transparent,
       ),
       home: CupertinoPageScaffold(
+        backgroundColor: Colors.white,
         child: DefaultTextStyle(
           style: TextStyle(fontSize: 12, color: CupertinoColors.white),
           child: HomePage(),

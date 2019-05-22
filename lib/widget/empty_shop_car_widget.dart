@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
+// 购物车为空时Widget
+
 class EmptyShopCar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

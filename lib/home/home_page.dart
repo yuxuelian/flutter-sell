@@ -61,6 +61,7 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
+            Padding(padding: EdgeInsets.only(top: 50)),
           ],
         ),
         // 购物车层

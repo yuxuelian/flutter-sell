@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 
+
+// 评分组件
+
 class RatingsWidget extends StatelessWidget {
   // 总数
   final int count;

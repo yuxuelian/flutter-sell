@@ -5,6 +5,8 @@ import '../provide/shop_car_provide.dart';
 import 'add_foot_widget.dart';
 import 'empty_shop_car_widget.dart';
 
+// 购物车列表
+
 class ShopCarList extends StatelessWidget {
   ShopCarList({Key key}) : super(key: key);
 

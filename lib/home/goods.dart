@@ -159,27 +159,22 @@ class _GoodsState extends State<Goods> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: double.infinity,
-      margin: EdgeInsets.only(bottom: 50),
-      child: Row(
-        children: <Widget>[
-          // 左侧的食物类型列表
-          Container(
-            width: 80,
-            color: Color(0xFFE0E0E0),
-            child: _buildFoodTypeList(context),
+    return Row(
+      children: <Widget>[
+        // 左侧的食物类型列表
+        Container(
+          width: 80,
+          color: Color(0xFFE0E0E0),
+          child: _buildFoodTypeList(context),
+        ),
+        // 右侧的食物列表
+        Expanded(
+          child: Container(
+            color: Color(0xFFF8F8F8),
+            child: _buildFoodList(context),
           ),
-          // 右侧的食物列表
-          Expanded(
-            child: Container(
-              color: Color(0xFFF8F8F8),
-              child: _buildFoodList(context),
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 

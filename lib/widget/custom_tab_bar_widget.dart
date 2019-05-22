@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 
 typedef ValueCallback = void Function(int index);
 
+// 自定义的TabBar
+
 class CustomTabBar extends StatefulWidget {
   final List<String> itemValues;
   final ValueCallback valueCallback;
