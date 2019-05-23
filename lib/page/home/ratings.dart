@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 
-import '../widget/ratings_header_widget.dart';
-import '../widget/ratings_controller_widget.dart';
-import '../widget/ratings_item_widget.dart';
+import '../../widget/ratings_header_widget.dart';
+import '../../widget/ratings_controller_widget.dart';
+import '../../widget/ratings_item_widget.dart';
 
-// 评论
+// 评论Tab页
 
 class Ratings extends StatefulWidget {
   @override

@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provide/provide.dart';
 
-import './home/home_page.dart';
+import './page/home/home_page.dart';
 import './provide/index.dart';
 
 void main() {
@@ -27,13 +27,7 @@ class MyApp extends StatelessWidget {
         platform: TargetPlatform.iOS,
         canvasColor: Colors.transparent,
       ),
-      home: CupertinoPageScaffold(
-        backgroundColor: Colors.white,
-        child: DefaultTextStyle(
-          style: TextStyle(fontSize: 12, color: CupertinoColors.white),
-          child: HomePage(),
-        ),
-      ),
+      home: HomePage(),
     );
   }
 }

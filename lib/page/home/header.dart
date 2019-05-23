@@ -2,6 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 
+import '../detail/sell_detail_page.dart';
+
 class HomeHeader extends StatefulWidget {
   HomeHeader({Key key}) : super(key: key);
 
@@ -11,7 +13,7 @@ class HomeHeader extends StatefulWidget {
 
 class _HomeHeaderState extends State<HomeHeader> {
   void _showSellDetail() {
-    print('_showSellDetail');
+    SellDetailPage.start(context);
   }
 
   @override

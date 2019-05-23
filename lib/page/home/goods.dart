@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/rendering.dart';
 
-import '../bean/goods_bean.dart';
-import '../utils/data_utils.dart';
-import '../widget/add_foot_widget.dart';
+import '../../bean/goods_bean.dart';
+import '../../utils/data_utils.dart';
+import '../../widget/add_foot_widget.dart';
 
-// 商品
+// 商品Tab页
+
 class Goods extends StatefulWidget {
   @override
   State createState() => _GoodsState();

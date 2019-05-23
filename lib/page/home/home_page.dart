@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 
-import './header.dart';
-import '../widget/custom_tab_bar_widget.dart';
-import '../widget/shop_car_widget.dart';
-import '../widget/throw_ball_anim_widget.dart';
-import 'goods.dart';
-import 'ratings.dart';
-import 'seller.dart';
+import 'package:flutter_sell/page/home/header.dart';
+import '../../widget/custom_tab_bar_widget.dart';
+import '../../widget/shop_car_widget.dart';
+import '../../widget/throw_ball_anim_widget.dart';
+import 'package:flutter_sell/page/home/goods.dart';
+import 'package:flutter_sell/page/home/ratings.dart';
+import 'package:flutter_sell/page/home/seller.dart';
 
 final List<String> _tabValues = [
   '商品',
@@ -24,13 +24,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
 
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
+  Widget _buildPage(BuildContext context) {
     return Stack(
       children: <Widget>[
         // 首先最底层展示商品信息
@@ -69,6 +63,22 @@ class _HomePageState extends State<HomePage> {
         // 抛小球动画层
         ThrowBallAnim(),
       ],
+    );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return CupertinoPageScaffold(
+      backgroundColor: CupertinoColors.white,
+      child: DefaultTextStyle(
+        style: TextStyle(fontSize: 12, color: CupertinoColors.white),
+        child: _buildPage(context),
+      ),
     );
   }
 }
