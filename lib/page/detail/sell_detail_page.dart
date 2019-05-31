@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import '../../widget/ratings_widget.dart';
 
 class SellDetailPage extends StatelessWidget {
-  /// 跳转到登录页面
   static Future<T> start<T extends Object>(BuildContext context) {
     return Navigator.of(context, rootNavigator: true).push(
       PageRouteBuilder(
@@ -128,7 +127,7 @@ class SellDetailPage extends StatelessWidget {
             borderRadius: BorderRadius.circular(0),
             child: Image.asset('assets/icon_close.png', width: 36),
             onPressed: () {
-              Navigator.of(context, rootNavigator: true).pop();
+              Navigator.pop(context);
             },
           ),
         )

@@ -1,7 +1,5 @@
-import 'dart:ui';
-
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provide/provide.dart';
 
 import './page/home/home_page.dart';
@@ -18,16 +16,34 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  int _lastClickTime = 0;
+
+  Future<bool> _doubleExit() {
+    int nowTime = new DateTime.now().microsecondsSinceEpoch;
+    if (_lastClickTime != 0 && nowTime - _lastClickTime > 1500) {
+      return new Future.value(true);
+    } else {
+      _lastClickTime = new DateTime.now().microsecondsSinceEpoch;
+      new Future.delayed(const Duration(milliseconds: 1500), () {
+        _lastClickTime = 0;
+      });
+      Fluttertoast.showToast(msg: '再点击一次返回键退出');
+      return new Future.value(false);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return CupertinoApp(
       title: 'flutter_sell',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        platform: TargetPlatform.iOS,
-        canvasColor: Colors.transparent,
+      theme: CupertinoThemeData(
+        brightness: Brightness.light,
+        primaryColor: CupertinoColors.activeBlue,
       ),
-      home: HomePage(),
+      home: WillPopScope(
+        onWillPop: _doubleExit,
+        child: HomePage(),
+      ),
     );
   }
 }

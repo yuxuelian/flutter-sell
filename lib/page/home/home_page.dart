@@ -1,18 +1,11 @@
 import 'package:flutter/cupertino.dart';
+import 'package:provide/provide.dart';
 
-import 'package:flutter_sell/page/home/header.dart';
-import '../../widget/custom_tab_bar_widget.dart';
+import '../../provide/index.dart';
+import '../../widget/shop_car_list_widget.dart';
 import '../../widget/shop_car_widget.dart';
 import '../../widget/throw_ball_anim_widget.dart';
-import 'package:flutter_sell/page/home/goods.dart';
-import 'package:flutter_sell/page/home/ratings.dart';
-import 'package:flutter_sell/page/home/seller.dart';
-
-final List<String> _tabValues = [
-  '商品',
-  '评论',
-  '商家',
-];
+import 'home_content.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -22,48 +15,52 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _currentIndex = 0;
+  GlobalKey<NavigatorState> navigatorKey = GlobalKey();
+
+  bool _isShow = false;
+
+  Future<void> showShopCarListCallback() async {
+    _isShow = !_isShow;
+    if (_isShow) {
+      // 显示
+      await ShopCarList.start(navigatorKey.currentState);
+      // 已经关闭
+      _isShow = false;
+    } else {
+      // 关闭
+      navigatorKey.currentState.pop();
+    }
+  }
 
   Widget _buildPage(BuildContext context) {
+    final ShopCarProvide shopCarProvide = Provide.value<ShopCarProvide>(context);
+    //  传递点击事件回调
+    shopCarProvide.showShopCarListCallback = showShopCarListCallback;
     return Stack(
       children: <Widget>[
         // 首先最底层展示商品信息
-        Column(
-          children: <Widget>[
-            HomeHeader(),
-            CustomTabBar(
-              fontSize: 14,
-              itemValues: _tabValues,
-              initIndex: _currentIndex,
-              color: Color(0xFF4D555D),
-              selectedColor: Color(0xFFF01414),
-              valueCallback: (index) {
-                setState(() {
-                  _currentIndex = index;
-                });
-              },
+        Container(
+          padding: EdgeInsets.only(bottom: 50),
+          child: Navigator(
+            key: navigatorKey,
+            onGenerateRoute: (settings) {
+              if (settings.name == '/') {
+                return PageRouteBuilder(
+                  opaque: false,
+                  pageBuilder: (context, animation, secondaryAnimation) => HomeContent(),
+                  transitionsBuilder: (context, animation, secondaryAnimation, child) => FadeTransition(opacity: animation, child: child),
+                  transitionDuration: Duration(milliseconds: 300),
+                  );
+              }
+            },
             ),
-            // 分割线
-            Container(height: 0.5, color: Color(0xFFE0E0E0)),
-            Expanded(
-              child: IndexedStack(
-                index: _currentIndex,
-                children: <Widget>[
-                  Goods(),
-                  Ratings(),
-                  Seller(),
-                ],
-              ),
-            ),
-            Padding(padding: EdgeInsets.only(top: 50)),
-          ],
-        ),
+          ),
         // 购物车层
         ShopCar(),
         // 抛小球动画层
         ThrowBallAnim(),
       ],
-    );
+      );
   }
 
   @override
@@ -78,7 +75,7 @@ class _HomePageState extends State<HomePage> {
       child: DefaultTextStyle(
         style: TextStyle(fontSize: 12, color: CupertinoColors.white),
         child: _buildPage(context),
-      ),
-    );
+        ),
+      );
   }
 }

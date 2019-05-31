@@ -51,4 +51,14 @@ class ShopCarProvide with ChangeNotifier {
     }
     return totalPrice;
   }
+
+  VoidCallback _showShopCarListCallback = () {};
+
+  set showShopCarListCallback(VoidCallback voidCallback) {
+    this._showShopCarListCallback = voidCallback;
+  }
+
+  void clickShopCarBtn() {
+    _showShopCarListCallback();
+  }
 }

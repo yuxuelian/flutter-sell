@@ -5,8 +5,8 @@ import '../bean/goods_bean.dart';
 import '../provide/index.dart';
 
 const _translationInitial = Offset.zero;
-const _translationTo1 = Offset(1.23, 0);
-const _translationTo2 = Offset(2.8, 0);
+const _translationTo1 = Offset(1.23, 0.0);
+const _translationTo2 = Offset(2.8, 0.0);
 
 // 添加到购物车的加减按钮
 

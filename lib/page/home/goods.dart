@@ -4,6 +4,7 @@ import 'package:flutter/rendering.dart';
 import '../../bean/goods_bean.dart';
 import '../../utils/data_utils.dart';
 import '../../widget/add_foot_widget.dart';
+import '../detail/food_detail_page.dart';
 
 // 商品Tab页
 
@@ -93,8 +94,14 @@ class _GoodsState extends State<Goods> {
   }
 
   Widget _buildFoodDetailItem(BuildContext context, final Food food) {
-    return Container(
+    return CupertinoButton(
+      minSize: 0,
+      pressedOpacity: 1,
+      borderRadius: BorderRadius.circular(0),
       padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+      onPressed: () {
+        FoodDetailPage.start(context);
+      },
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
