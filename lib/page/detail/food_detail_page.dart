@@ -67,7 +67,7 @@ class FoodDetailPage extends StatelessWidget {
     ];
 
     // 商品简介不为空的话,显示商品简介
-    if (food.info.isNotEmpty) {
+    if (food.info != null && food.info.isNotEmpty) {
       res.addAll(<Widget>[
         // 商品简介
         Padding(
@@ -131,7 +131,11 @@ class FoodDetailPage extends StatelessWidget {
               pressedOpacity: 1,
               padding: EdgeInsets.all(0),
               borderRadius: BorderRadius.circular(0),
-              child: Image.asset('assets/icon_back.png', width: 20),
+              child: Image.asset(
+                'assets/icon_back.png',
+                width: 20,
+                color: CupertinoColors.activeBlue,
+              ),
               onPressed: () {
                 Navigator.pop(context);
               },
