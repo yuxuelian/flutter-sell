@@ -100,7 +100,7 @@ class _GoodsState extends State<Goods> {
       borderRadius: BorderRadius.circular(0),
       padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
       onPressed: () {
-        FoodDetailPage.start(context);
+        FoodDetailPage.start(context, food);
       },
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,

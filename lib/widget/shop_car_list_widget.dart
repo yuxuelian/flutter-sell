@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:provide/provide.dart';
 
 import '../provide/shop_car_provide.dart';
@@ -95,18 +94,23 @@ class ShopCarList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.bottomCenter,
-      child: Container(
-        height: 260,
-        color: CupertinoColors.white,
-        child: Column(
-          children: <Widget>[
-            _buildTitle(context),
-            Expanded(
-              child: _buildList(context),
-            ),
-          ],
+    return WillPopScope(
+      onWillPop: () {
+        Navigator.pop(context);
+      },
+      child: Align(
+        alignment: Alignment.bottomCenter,
+        child: Container(
+          height: 260,
+          color: CupertinoColors.white,
+          child: Column(
+            children: <Widget>[
+              _buildTitle(context),
+              Expanded(
+                child: _buildList(context),
+              ),
+            ],
+          ),
         ),
       ),
     );

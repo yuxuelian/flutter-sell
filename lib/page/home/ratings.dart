@@ -12,6 +12,7 @@ class Ratings extends StatefulWidget {
 }
 
 class _RatingsState extends State<Ratings> {
+  // 评价数据
   List<String> _ratingsDataList = ["", "", "", "", ""];
 
   @override
