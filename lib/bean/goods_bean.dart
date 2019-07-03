@@ -7,7 +7,11 @@ class GoodsBean {
 
   GoodsBean.fromParams({this.type, this.name, this.foods});
 
-  factory GoodsBean(jsonStr) => jsonStr == null ? null : jsonStr is String ? new GoodsBean.fromJson(json.decode(jsonStr)) : new GoodsBean.fromJson(jsonStr);
+  factory GoodsBean(jsonStr) => jsonStr == null
+      ? null
+      : jsonStr is String
+          ? new GoodsBean.fromJson(json.decode(jsonStr))
+          : new GoodsBean.fromJson(jsonStr);
 
   GoodsBean.fromJson(jsonRes) {
     type = jsonRes['type'];
@@ -40,7 +44,17 @@ class Food {
   // 食物数量
   int count = 0;
 
-  Food.fromParams({this.oldPrice, this.price, this.rating, this.sellCount, this.description, this.icon, this.image, this.info, this.name, this.ratings});
+  Food.fromParams(
+      {this.oldPrice,
+      this.price,
+      this.rating,
+      this.sellCount,
+      this.description,
+      this.icon,
+      this.image,
+      this.info,
+      this.name,
+      this.ratings});
 
   Food.fromJson(jsonRes) {
     oldPrice = jsonRes['oldPrice'];
@@ -55,7 +69,8 @@ class Food {
     ratings = jsonRes['ratings'] == null ? null : [];
 
     for (var ratingsItem in ratings == null ? [] : jsonRes['ratings']) {
-      ratings.add(ratingsItem == null ? null : new GoodsRating.fromJson(ratingsItem));
+      ratings.add(
+          ratingsItem == null ? null : new GoodsRating.fromJson(ratingsItem));
     }
   }
 
@@ -72,7 +87,8 @@ class GoodsRating {
   String text;
   String username;
 
-  GoodsRating.fromParams({this.rateTime, this.rateType, this.avatar, this.text, this.username});
+  GoodsRating.fromParams(
+      {this.rateTime, this.rateType, this.avatar, this.text, this.username});
 
   GoodsRating.fromJson(jsonRes) {
     rateTime = jsonRes['rateTime'];

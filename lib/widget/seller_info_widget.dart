@@ -20,7 +20,8 @@ class SellerInfo extends StatelessWidget {
           ),
         ),
       ),
-      child: Text(text, style: TextStyle(fontSize: 14, color: Color(0xFF303030))),
+      child:
+          Text(text, style: TextStyle(fontSize: 14, color: Color(0xFF303030))),
     );
   }
 

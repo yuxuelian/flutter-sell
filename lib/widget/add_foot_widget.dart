@@ -53,8 +53,10 @@ class _AddFootState extends State<AddFoot> with TickerProviderStateMixin {
     // 旋转动画
     _curved = Tween(begin: 1.0, end: 0.0).animate(_animationController);
     // 平移动画
-    _minusWidget = Tween(begin: _translationTo1, end: _translationInitial).animate(_animationController);
-    _counterWidget = Tween(begin: _translationTo2, end: _translationInitial).animate(_animationController);
+    _minusWidget = Tween(begin: _translationTo1, end: _translationInitial)
+        .animate(_animationController);
+    _counterWidget = Tween(begin: _translationTo2, end: _translationInitial)
+        .animate(_animationController);
     // 透明度动画
     _curveTween = Tween(begin: 0.0, end: 1.0).animate(_animationController)
       ..addListener(() {
@@ -69,8 +71,10 @@ class _AddFootState extends State<AddFoot> with TickerProviderStateMixin {
     // 旋转动画
     _curved = Tween(begin: 0.0, end: 1.0).animate(_animationController);
     // 平移动画
-    _minusWidget = Tween(begin: _translationInitial, end: _translationTo1).animate(_animationController);
-    _counterWidget = Tween(begin: _translationInitial, end: _translationTo2).animate(_animationController);
+    _minusWidget = Tween(begin: _translationInitial, end: _translationTo1)
+        .animate(_animationController);
+    _counterWidget = Tween(begin: _translationInitial, end: _translationTo2)
+        .animate(_animationController);
     // 透明度动画
     _curveTween = Tween(begin: 1.0, end: 0.0).animate(_animationController)
       ..addListener(() {
@@ -84,7 +88,8 @@ class _AddFootState extends State<AddFoot> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     // 动画控制器
-    _animationController = AnimationController(vsync: this, duration: const Duration(milliseconds: 400));
+    _animationController = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 400));
     _animationController.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         setState(() {
@@ -121,7 +126,8 @@ class _AddFootState extends State<AddFoot> with TickerProviderStateMixin {
         ),
         onPressed: () {
           // 获取全局 BallAnimProvide 状态对象
-          final BallAnimProvide ballAnimProvide = Provide.value<BallAnimProvide>(context);
+          final BallAnimProvide ballAnimProvide =
+              Provide.value<BallAnimProvide>(context);
           // 获取Widget树中真正的盒子对象
           RenderBox renderBox = _addWidgetKey.currentContext.findRenderObject();
           // 小球大小保存到全局
@@ -132,7 +138,8 @@ class _AddFootState extends State<AddFoot> with TickerProviderStateMixin {
           // 回调这个启动动画的函数
           ballAnimProvide.notifyStartAnim();
           // 获取全局 ShopCarProvide 状态对象
-          final ShopCarProvide shopCarProvide = Provide.value<ShopCarProvide>(context);
+          final ShopCarProvide shopCarProvide =
+              Provide.value<ShopCarProvide>(context);
           shopCarProvide.plusFoodCount(widget.food);
           if (widget.food.count == 1) {
             _hideMinusBtn = false;
@@ -158,10 +165,12 @@ class _AddFootState extends State<AddFoot> with TickerProviderStateMixin {
                       minSize: 0,
                       pressedOpacity: 1,
                       padding: EdgeInsets.all(6),
-                      child: Image.asset('assets/icon_minus.png', width: 20, height: 20),
+                      child: Image.asset('assets/icon_minus.png',
+                          width: 20, height: 20),
                       onPressed: () {
                         // 获取全局 ShopCarProvide 状态对象
-                        final ShopCarProvide shopCarProvide = Provide.value<ShopCarProvide>(context);
+                        final ShopCarProvide shopCarProvide =
+                            Provide.value<ShopCarProvide>(context);
                         shopCarProvide.minusFoodCount(widget.food);
                         if (widget.food.count == 0) {
                           startHideAnim();

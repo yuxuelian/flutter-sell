@@ -80,7 +80,8 @@ class _RatingsControllerState extends State<RatingsController> {
                   size: 20,
                 ),
                 Padding(padding: EdgeInsets.only(left: 10)),
-                Text('只看有内容的评价', style: TextStyle(fontSize: 14, color: Color(0xFF909090))),
+                Text('只看有内容的评价',
+                    style: TextStyle(fontSize: 14, color: Color(0xFF909090))),
               ],
             ),
             onPressed: () {
@@ -135,7 +136,12 @@ class _RectCheckBox extends StatelessWidget {
         alignment: Alignment.center,
         width: width,
         height: height,
-        child: Text(text, style: TextStyle(fontSize: 14, color: id == checkedId ? CupertinoColors.white : Color(0xFF909090))),
+        child: Text(text,
+            style: TextStyle(
+                fontSize: 14,
+                color: id == checkedId
+                    ? CupertinoColors.white
+                    : Color(0xFF909090))),
       ),
       onPressed: onPressed,
     );

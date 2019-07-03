@@ -8,15 +8,19 @@ import '../../widget/ratings_item_widget.dart';
 class FoodDetailPage extends StatelessWidget {
   final Food food;
 
-  static Future<T> start<T extends Object>(BuildContext context, final Food food) {
+  static Future<T> start<T extends Object>(
+      BuildContext context, final Food food) {
     return Navigator.of(context).push(
       PageRouteBuilder(
         opaque: false,
-        pageBuilder: (context, animation, secondaryAnimation) => FoodDetailPage(food: food),
-        transitionsBuilder: (context, animation, secondaryAnimation, child) => SlideTransition(
-              position: Tween(begin: Offset(1.0, 0.0), end: Offset(0.0, 0.0)).animate(animation),
-              child: child,
-            ),
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            FoodDetailPage(food: food),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+            SlideTransition(
+          position: Tween(begin: Offset(1.0, 0.0), end: Offset(0.0, 0.0))
+              .animate(animation),
+          child: child,
+        ),
         transitionDuration: Duration(milliseconds: 300),
       ),
     );
@@ -30,16 +34,19 @@ class FoodDetailPage extends StatelessWidget {
       // 商品名字
       Padding(
         padding: EdgeInsets.only(left: 20, top: 10),
-        child: Text(food.name, style: TextStyle(fontSize: 16, color: Color(0xFF303030))),
+        child: Text(food.name,
+            style: TextStyle(fontSize: 16, color: Color(0xFF303030))),
       ),
       // 商品的销售信息
       Padding(
         padding: EdgeInsets.only(left: 20, top: 6),
         child: Row(
           children: <Widget>[
-            Text('月售${food.sellCount}份', style: TextStyle(fontSize: 14, color: Color(0xFF93999F))),
+            Text('月售${food.sellCount}份',
+                style: TextStyle(fontSize: 14, color: Color(0xFF93999F))),
             Padding(padding: EdgeInsets.only(left: 10)),
-            Text('好评率${food.rating}%', style: TextStyle(fontSize: 14, color: Color(0xFF93999F))),
+            Text('好评率${food.rating}%',
+                style: TextStyle(fontSize: 14, color: Color(0xFF93999F))),
           ],
         ),
       ),
@@ -49,7 +56,8 @@ class FoodDetailPage extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            Text('¥${food.price}', style: TextStyle(fontSize: 16, color: Color(0xFFF01414))),
+            Text('¥${food.price}',
+                style: TextStyle(fontSize: 16, color: Color(0xFFF01414))),
             AddFoot(food: food),
           ],
         ),
@@ -72,11 +80,13 @@ class FoodDetailPage extends StatelessWidget {
         // 商品简介
         Padding(
           padding: EdgeInsets.only(left: 20, top: 10),
-          child: Text('商品介绍', style: TextStyle(fontSize: 16, color: Color(0xFF303030))),
+          child: Text('商品介绍',
+              style: TextStyle(fontSize: 16, color: Color(0xFF303030))),
         ),
         Padding(
           padding: EdgeInsets.only(left: 20, top: 6, right: 20, bottom: 10),
-          child: Text(food.info, style: TextStyle(fontSize: 12, color: Color(0xFF4D555D))),
+          child: Text(food.info,
+              style: TextStyle(fontSize: 12, color: Color(0xFF4D555D))),
         ),
         // 分割线
         Container(
@@ -96,7 +106,8 @@ class FoodDetailPage extends StatelessWidget {
     res.addAll(<Widget>[
       Padding(
         padding: EdgeInsets.only(left: 20, top: 10),
-        child: Text('商品评价', style: TextStyle(fontSize: 16, color: Color(0xFF303030))),
+        child: Text('商品评价',
+            style: TextStyle(fontSize: 16, color: Color(0xFF303030))),
       ),
       RatingsController(),
     ]);

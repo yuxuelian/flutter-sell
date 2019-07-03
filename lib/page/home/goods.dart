@@ -49,7 +49,11 @@ class _GoodsState extends State<Goods> {
       child: Text(
         _goodsBeanList[index].name,
         textAlign: TextAlign.center,
-        style: TextStyle(fontSize: 12, color: _currentFoodTypeIndex == index ? Color(0xFFF01414) : Color(0xFF303030)),
+        style: TextStyle(
+            fontSize: 12,
+            color: _currentFoodTypeIndex == index
+                ? Color(0xFFF01414)
+                : Color(0xFF303030)),
       ),
       onPressed: () {
         setState(() {
@@ -114,24 +118,33 @@ class _GoodsState extends State<Goods> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: () {
                 final res = <Widget>[];
-                res.add(Text(food.name, style: TextStyle(fontSize: 16, color: Color(0xFF303030))));
+                res.add(Text(food.name,
+                    style: TextStyle(fontSize: 16, color: Color(0xFF303030))));
                 res.add(Padding(padding: EdgeInsets.only(top: 4)));
                 if (food.description.isNotEmpty) {
-                  res.add(Text(food.name, style: TextStyle(fontSize: 12, color: Color(0xFF93999F))));
+                  res.add(Text(food.name,
+                      style:
+                          TextStyle(fontSize: 12, color: Color(0xFF93999F))));
                   res.add(Padding(padding: EdgeInsets.only(top: 4)));
                 }
                 res.add(Row(
                   children: <Widget>[
-                    Text('月售${food.sellCount}份', style: TextStyle(fontSize: 12, color: Color(0xFF93999F))),
+                    Text('月售${food.sellCount}份',
+                        style:
+                            TextStyle(fontSize: 12, color: Color(0xFF93999F))),
                     Padding(padding: EdgeInsets.only(left: 4)),
-                    Text('好评率${food.rating}%', style: TextStyle(fontSize: 12, color: Color(0xFF93999F))),
+                    Text('好评率${food.rating}%',
+                        style:
+                            TextStyle(fontSize: 12, color: Color(0xFF93999F))),
                   ],
                 ));
                 res.add(Padding(padding: EdgeInsets.only(top: 4)));
                 res.add(Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text('¥${food.price}', style: TextStyle(fontSize: 16, color: Color(0xFFF01414))),
+                    Text('¥${food.price}',
+                        style:
+                            TextStyle(fontSize: 16, color: Color(0xFFF01414))),
                     AddFoot(food: food),
                   ],
                 ));

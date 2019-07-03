@@ -17,7 +17,8 @@ class DataUtils {
 
   static Future<List<GoodsBean>> getGoodsBeanList(BuildContext context) async {
     if (_goodsBeanList == null) {
-      final goodsDataStr = await DefaultAssetBundle.of(context).loadString('json/goods_data.json');
+      final goodsDataStr = await DefaultAssetBundle.of(context)
+          .loadString('json/goods_data.json');
       final resList = json.decode(goodsDataStr);
       _goodsBeanList = [];
       for (var dataItem in resList == null ? [] : resList) {
@@ -27,9 +28,11 @@ class DataUtils {
     return Future.value(_goodsBeanList);
   }
 
-  static Future<List<RatingsBean>> getRatingsBeanList(BuildContext context) async {
+  static Future<List<RatingsBean>> getRatingsBeanList(
+      BuildContext context) async {
     if (_ratingsBeanList == null) {
-      final ratingsDataStr = await DefaultAssetBundle.of(context).loadString('json/ratings_data.json');
+      final ratingsDataStr = await DefaultAssetBundle.of(context)
+          .loadString('json/ratings_data.json');
       final resList = json.decode(ratingsDataStr);
       _ratingsBeanList = [];
       for (var dataItem in resList == null ? [] : resList) {
@@ -41,7 +44,8 @@ class DataUtils {
 
   static Future<SellerBean> getSellerBean(BuildContext context) async {
     if (_sellerBean == null) {
-      final sellerData = await DefaultAssetBundle.of(context).loadString('json/seller_data.json');
+      final sellerData = await DefaultAssetBundle.of(context)
+          .loadString('json/seller_data.json');
       _sellerBean = SellerBean.fromJson(json.decode(sellerData));
     }
     return Future.value(_sellerBean);

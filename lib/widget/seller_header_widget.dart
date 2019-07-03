@@ -11,15 +11,18 @@ class SellerHeader extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text('粥品香坊（回龙观）', style: TextStyle(fontSize: 16, color: Color(0xFF303030))),
+            Text('粥品香坊（回龙观）',
+                style: TextStyle(fontSize: 16, color: Color(0xFF303030))),
             Padding(padding: EdgeInsets.only(top: 4)),
             Row(
               children: <Widget>[
                 RatingsWidget(),
                 Padding(padding: EdgeInsets.only(left: 10)),
-                Text('(24)', style: TextStyle(fontSize: 12, color: Color(0xFF303030))),
+                Text('(24)',
+                    style: TextStyle(fontSize: 12, color: Color(0xFF303030))),
                 Padding(padding: EdgeInsets.only(left: 10)),
-                Text('月售90单', style: TextStyle(fontSize: 12, color: Color(0xFF303030))),
+                Text('月售90单',
+                    style: TextStyle(fontSize: 12, color: Color(0xFF303030))),
               ],
             ),
           ],
@@ -28,7 +31,8 @@ class SellerHeader extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Image.asset('assets/icon_love_normal.png', width: 30),
-              Text('收藏', style: TextStyle(fontSize: 12, color: Color(0xFF303030))),
+              Text('收藏',
+                  style: TextStyle(fontSize: 12, color: Color(0xFF303030))),
             ],
           ),
         ),
@@ -36,7 +40,8 @@ class SellerHeader extends StatelessWidget {
     );
   }
 
-  Widget _buildRow2Item(BuildContext context, String text1, String text2, String text3) {
+  Widget _buildRow2Item(
+      BuildContext context, String text1, String text2, String text3) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
@@ -45,11 +50,13 @@ class SellerHeader extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: <Widget>[
-            Text(text2, style: TextStyle(fontSize: 24, color: Color(0xFF303030))),
+            Text(text2,
+                style: TextStyle(fontSize: 24, color: Color(0xFF303030))),
             Container(
               // 这里的padding主要是为了字体底线对齐
               padding: EdgeInsets.only(bottom: 4),
-              child: Text(text3, style: TextStyle(fontSize: 12, color: Color(0xFF303030))),
+              child: Text(text3,
+                  style: TextStyle(fontSize: 12, color: Color(0xFF303030))),
             ),
           ],
         ),

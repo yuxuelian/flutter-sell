@@ -7,8 +7,10 @@ class SellDetailPage extends StatelessWidget {
     return Navigator.of(context, rootNavigator: true).push(
       PageRouteBuilder(
         opaque: false,
-        pageBuilder: (context, animation, secondaryAnimation) => SellDetailPage(),
-        transitionsBuilder: (context, animation, secondaryAnimation, child) => FadeTransition(opacity: animation, child: child),
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            SellDetailPage(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+            FadeTransition(opacity: animation, child: child),
         transitionDuration: Duration(milliseconds: 300),
       ),
     );
@@ -90,21 +92,27 @@ class SellDetailPage extends StatelessWidget {
 
     // 优惠信息列表
     children.add(Padding(padding: EdgeInsets.only(top: 20)));
-    children.add(_buildDiscountsInfo(context, 'assets/decrease_2@2x.png', '在线支付满28减5'));
+    children.add(
+        _buildDiscountsInfo(context, 'assets/decrease_2@2x.png', '在线支付满28减5'));
     children.add(Padding(padding: EdgeInsets.only(top: 10)));
-    children.add(_buildDiscountsInfo(context, 'assets/discount_2@2x.png', 'VC无限橙果汁全场8折'));
+    children.add(_buildDiscountsInfo(
+        context, 'assets/discount_2@2x.png', 'VC无限橙果汁全场8折'));
     children.add(Padding(padding: EdgeInsets.only(top: 10)));
-    children.add(_buildDiscountsInfo(context, 'assets/special_2@2x.png', '单人精彩套餐'));
+    children
+        .add(_buildDiscountsInfo(context, 'assets/special_2@2x.png', '单人精彩套餐'));
     children.add(Padding(padding: EdgeInsets.only(top: 10)));
-    children.add(_buildDiscountsInfo(context, 'assets/invoice_2@2x.png', '该商家支持发票,请下单写好发票抬头'));
+    children.add(_buildDiscountsInfo(
+        context, 'assets/invoice_2@2x.png', '该商家支持发票,请下单写好发票抬头'));
     children.add(Padding(padding: EdgeInsets.only(top: 10)));
-    children.add(_buildDiscountsInfo(context, 'assets/guarantee_2@2x.png', '已加入“外卖保”计划,食品安全保障'));
+    children.add(_buildDiscountsInfo(
+        context, 'assets/guarantee_2@2x.png', '已加入“外卖保”计划,食品安全保障'));
     children.add(Padding(padding: EdgeInsets.only(top: 20)));
 
     // 商家公告
     children.add(_buildSubTitle(context, '商家公告'));
     children.add(Padding(padding: EdgeInsets.only(top: 20)));
-    children.add(_buildSellBulletin(context, '粥品香坊其烹饪粥料的秘方源于中国千年古法，在融和现代制作工艺，由世界烹饪大师屈浩先生领衔研发。坚守纯天然、0添加的良心品质深得消费者青睐，发展至今成为粥类的引领品牌。是2008年奥运会和2013年园博会指定餐饮服务商。'));
+    children.add(_buildSellBulletin(context,
+        '粥品香坊其烹饪粥料的秘方源于中国千年古法，在融和现代制作工艺，由世界烹饪大师屈浩先生领衔研发。坚守纯天然、0添加的良心品质深得消费者青睐，发展至今成为粥类的引领品牌。是2008年奥运会和2013年园博会指定餐饮服务商。'));
 
     return Column(
       children: <Widget>[

@@ -24,7 +24,9 @@ class _HomeHeaderState extends State<HomeHeader> {
         children: <Widget>[
           // 最下层背景图片
           ConstrainedBox(
-            child: Image.network('http://static.galileo.xiaojukeji.com/static/tms/seller_avatar_256px.jpg', fit: BoxFit.fill),
+            child: Image.network(
+                'http://static.galileo.xiaojukeji.com/static/tms/seller_avatar_256px.jpg',
+                fit: BoxFit.fill),
             constraints: BoxConstraints.expand(),
           ),
           ConstrainedBox(
@@ -43,7 +45,9 @@ class _HomeHeaderState extends State<HomeHeader> {
                       children: <Widget>[
                         Row(
                           children: <Widget>[
-                            Image.network('http://static.galileo.xiaojukeji.com/static/tms/seller_avatar_256px.jpg', width: 70),
+                            Image.network(
+                                'http://static.galileo.xiaojukeji.com/static/tms/seller_avatar_256px.jpg',
+                                width: 70),
                             Padding(padding: EdgeInsets.only(left: 10)),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,9 +55,13 @@ class _HomeHeaderState extends State<HomeHeader> {
                               children: <Widget>[
                                 Row(
                                   children: <Widget>[
-                                    Image.asset('assets/brand@2x.png', width: 34),
+                                    Image.asset('assets/brand@2x.png',
+                                        width: 34),
                                     Padding(padding: EdgeInsets.only(left: 6)),
-                                    Text('粥品香坊（回龙观）', style: TextStyle(fontSize: 16, color: CupertinoColors.white)),
+                                    Text('粥品香坊（回龙观）',
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            color: CupertinoColors.white)),
                                   ],
                                 ),
                                 Padding(padding: EdgeInsets.only(top: 2)),
@@ -61,7 +69,8 @@ class _HomeHeaderState extends State<HomeHeader> {
                                 Padding(padding: EdgeInsets.only(top: 2)),
                                 Row(
                                   children: <Widget>[
-                                    Image.asset('assets/decrease_2@2x.png', width: 12),
+                                    Image.asset('assets/decrease_2@2x.png',
+                                        width: 12),
                                     Padding(padding: EdgeInsets.only(left: 6)),
                                     Text('在线支付满28减5'),
                                   ],
@@ -82,16 +91,21 @@ class _HomeHeaderState extends State<HomeHeader> {
                               width: 56,
                               height: 24,
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.all(Radius.circular(24)),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(24)),
                                 color: Color(0x50303030),
                               ),
                               alignment: Alignment.center,
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 children: <Widget>[
-                                  Text('5个', style: TextStyle(fontSize: 12, color: CupertinoColors.white)),
+                                  Text('5个',
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          color: CupertinoColors.white)),
                                   Padding(padding: EdgeInsets.only(left: 4)),
-                                  Image.asset('assets/icon_right.png', width: 10),
+                                  Image.asset('assets/icon_right.png',
+                                      width: 10),
                                 ],
                               ),
                             ),
@@ -119,7 +133,8 @@ class _HomeHeaderState extends State<HomeHeader> {
                         Expanded(
                           child: Text(
                             '粥品香坊其烹饪粥料的秘方源于中国千年古法，在融和现代制作工艺，由世界烹饪大师屈浩先生领衔研发。坚守纯天然、0添加的良心品质深得消费者青睐，发展至今成为粥类的引领品牌。是2008年奥运会和2013年园博会指定餐饮服务商。',
-                            style: TextStyle(fontSize: 12, color: CupertinoColors.white),
+                            style: TextStyle(
+                                fontSize: 12, color: CupertinoColors.white),
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                           ),

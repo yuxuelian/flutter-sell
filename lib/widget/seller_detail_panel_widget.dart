@@ -59,10 +59,13 @@ class SellerDetailPanel extends StatelessWidget {
           _buildTitle(context),
           _buildBulletin(context),
           _buildDiscountsInfo(context, 'assets/decrease_3@2x.png', '在线支付满28减5'),
-          _buildDiscountsInfo(context, 'assets/discount_3@2x.png', 'VC无限橙果汁全场8折'),
+          _buildDiscountsInfo(
+              context, 'assets/discount_3@2x.png', 'VC无限橙果汁全场8折'),
           _buildDiscountsInfo(context, 'assets/special_3@2x.png', '单人精彩套餐'),
-          _buildDiscountsInfo(context, 'assets/invoice_3@2x.png', '该商家支持发票,请下单写好发票抬头'),
-          _buildDiscountsInfo(context, 'assets/guarantee_3@2x.png', '已加入“外卖保”计划,食品安全保障'),
+          _buildDiscountsInfo(
+              context, 'assets/invoice_3@2x.png', '该商家支持发票,请下单写好发票抬头'),
+          _buildDiscountsInfo(
+              context, 'assets/guarantee_3@2x.png', '已加入“外卖保”计划,食品安全保障'),
         ],
       ),
     );

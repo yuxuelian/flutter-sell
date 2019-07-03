@@ -3,7 +3,6 @@ import 'package:provide/provide.dart';
 
 import '../provide/index.dart';
 
-
 // 抛小球动画层 widget
 
 class ThrowBallAnim extends StatefulWidget {
@@ -22,8 +21,10 @@ class _ThrowBallAnimState extends State<ThrowBallAnim> {
     final startPosition = ballAnimProvide.ballPosition;
     // 计算小球的结束位置
     final endPosition = Offset(
-      ballAnimProvide.shopCarPosition.dx + (ballAnimProvide.shopCarSize.width - ballSize.width) / 2.0,
-      ballAnimProvide.shopCarPosition.dy + (ballAnimProvide.shopCarSize.height - ballSize.height) / 2.0,
+      ballAnimProvide.shopCarPosition.dx +
+          (ballAnimProvide.shopCarSize.width - ballSize.width) / 2.0,
+      ballAnimProvide.shopCarPosition.dy +
+          (ballAnimProvide.shopCarSize.height - ballSize.height) / 2.0,
     );
 
     for (var value in _ballAnimKeys) {
@@ -82,7 +83,8 @@ class _BallAnimState extends State<_BallAnim> with TickerProviderStateMixin {
     _ballOffset = Offset.zero;
 
     // 动画控制器
-    _animationController = AnimationController(vsync: this, duration: const Duration(milliseconds: 400))
+    _animationController = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 400))
       ..addStatusListener((status) {
         if (status == AnimationStatus.completed) {
           // 动画执行结束,立即隐藏小球
@@ -95,13 +97,14 @@ class _BallAnimState extends State<_BallAnim> with TickerProviderStateMixin {
 
   void startAnim(Size ballSize, Offset startPosition, Offset endPosition) {
     // 创建动画执行轨迹
-    _animationOffset = ThrowTween(begin: startPosition, end: endPosition).animate(_animationController)
-      ..addListener(() {
-        setState(() {
-          // 拿到中间计算值,刷新界面
-          _ballOffset = _animationOffset.value;
-        });
-      });
+    _animationOffset = ThrowTween(begin: startPosition, end: endPosition)
+        .animate(_animationController)
+          ..addListener(() {
+            setState(() {
+              // 拿到中间计算值,刷新界面
+              _ballOffset = _animationOffset.value;
+            });
+          });
 
     // 启动动画前  将小球显示出来
     setState(() {
@@ -160,7 +163,8 @@ class ThrowTween extends Animatable<Offset> {
     final temp1 = x2 * x2 - x3 * x3;
     final temp2 = x1 * x1 - x2 * x2;
     // 计算抛物线系数
-    b = (temp1 * (y1 - y2) - temp2 * (y2 - y3)) / (temp1 * (x1 - x2) - (temp2) * (x2 - x3));
+    b = (temp1 * (y1 - y2) - temp2 * (y2 - y3)) /
+        (temp1 * (x1 - x2) - (temp2) * (x2 - x3));
     a = (y1 - y2 - b * (x1 - x2)) / temp2;
     c = y1 - a * x1 * x1 - b * x1;
   }

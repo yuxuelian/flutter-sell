@@ -33,7 +33,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _buildPage(BuildContext context) {
-    final ShopCarProvide shopCarProvide = Provide.value<ShopCarProvide>(context);
+    final ShopCarProvide shopCarProvide =
+        Provide.value<ShopCarProvide>(context);
     //  传递点击事件回调
     shopCarProvide.showShopCarListCallback = showShopCarListCallback;
     return Stack(
@@ -44,28 +45,28 @@ class _HomePageState extends State<HomePage> {
           child: Navigator(
             key: navigatorKey,
             onGenerateRoute: (settings) {
+              print('settings.name = ${settings.name}');
               if (settings.name == '/') {
                 return PageRouteBuilder(
                   opaque: false,
-                  pageBuilder: (context, animation, secondaryAnimation) => HomeContent(),
-                  transitionsBuilder: (context, animation, secondaryAnimation, child) => FadeTransition(opacity: animation, child: child),
+                  pageBuilder: (context, animation, secondaryAnimation) =>
+                      HomeContent(),
+                  transitionsBuilder:
+                      (context, animation, secondaryAnimation, child) =>
+                          FadeTransition(opacity: animation, child: child),
                   transitionDuration: Duration(milliseconds: 300),
-                  );
+                );
               }
+              return null;
             },
-            ),
           ),
+        ),
         // 购物车层
         ShopCar(),
         // 抛小球动画层
         ThrowBallAnim(),
       ],
-      );
-  }
-
-  @override
-  void initState() {
-    super.initState();
+    );
   }
 
   @override
@@ -75,7 +76,7 @@ class _HomePageState extends State<HomePage> {
       child: DefaultTextStyle(
         style: TextStyle(fontSize: 12, color: CupertinoColors.white),
         child: _buildPage(context),
-        ),
-      );
+      ),
+    );
   }
 }

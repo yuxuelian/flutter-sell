@@ -1,7 +1,6 @@
 import 'dart:convert' show json;
 
 class RatingsBean {
-
   int deliveryTime;
   int rateTime;
   int rateType;
@@ -11,9 +10,21 @@ class RatingsBean {
   String username;
   List<String> recommend;
 
-  RatingsBean.fromParams({this.deliveryTime, this.rateTime, this.rateType, this.score, this.avatar, this.text, this.username, this.recommend});
+  RatingsBean.fromParams(
+      {this.deliveryTime,
+      this.rateTime,
+      this.rateType,
+      this.score,
+      this.avatar,
+      this.text,
+      this.username,
+      this.recommend});
 
-  factory RatingsBean(jsonStr) => jsonStr == null ? null : jsonStr is String ? new RatingsBean.fromJson(json.decode(jsonStr)) : new RatingsBean.fromJson(jsonStr);
+  factory RatingsBean(jsonStr) => jsonStr == null
+      ? null
+      : jsonStr is String
+          ? new RatingsBean.fromJson(json.decode(jsonStr))
+          : new RatingsBean.fromJson(jsonStr);
 
   RatingsBean.fromJson(jsonRes) {
     deliveryTime = jsonRes['deliveryTime'];
@@ -25,13 +36,13 @@ class RatingsBean {
     username = jsonRes['username'];
     recommend = jsonRes['recommend'] == null ? null : [];
 
-    for (var recommendItem in recommend == null ? [] : jsonRes['recommend']){
+    for (var recommendItem in recommend == null ? [] : jsonRes['recommend']) {
       recommend.add(recommendItem);
     }
   }
 
   @override
   String toString() {
-    return '{"deliveryTime": $deliveryTime,"rateTime": $rateTime,"rateType": $rateType,"score": $score,"avatar": ${avatar != null?'${json.encode(avatar)}':'null'},"text": ${text != null?'${json.encode(text)}':'null'},"username": ${username != null?'${json.encode(username)}':'null'},"recommend": $recommend}';
+    return '{"deliveryTime": $deliveryTime,"rateTime": $rateTime,"rateType": $rateType,"score": $score,"avatar": ${avatar != null ? '${json.encode(avatar)}' : 'null'},"text": ${text != null ? '${json.encode(text)}' : 'null'},"username": ${username != null ? '${json.encode(username)}' : 'null'},"recommend": $recommend}';
   }
 }

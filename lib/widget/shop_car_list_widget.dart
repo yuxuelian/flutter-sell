@@ -15,10 +15,12 @@ class ShopCarList extends StatelessWidget {
         barrierDismissible: true,
         barrierColor: Color(0x6604040F),
         pageBuilder: (context, animation, secondaryAnimation) => ShopCarList(),
-        transitionsBuilder: (context, animation, secondaryAnimation, child) => SlideTransition(
-              position: Tween(begin: Offset(0.0, 1.0), end: Offset(0.0, 0.0)).animate(animation),
-              child: child,
-            ),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+            SlideTransition(
+          position: Tween(begin: Offset(0.0, 1.0), end: Offset(0.0, 0.0))
+              .animate(animation),
+          child: child,
+        ),
         transitionDuration: Duration(milliseconds: 300),
       ),
     );
@@ -43,7 +45,8 @@ class ShopCarList extends StatelessWidget {
             child: Text('清空', style: TextStyle(fontSize: 14)),
             onPressed: () {
               // 获取全局 ShopCarProvide 状态对象
-              final ShopCarProvide shopCarProvide = Provide.value<ShopCarProvide>(context);
+              final ShopCarProvide shopCarProvide =
+                  Provide.value<ShopCarProvide>(context);
               shopCarProvide.clear();
             },
           ),
@@ -69,11 +72,14 @@ class ShopCarList extends StatelessWidget {
                       child: Row(
                         children: <Widget>[
                           Padding(padding: EdgeInsets.only(left: 20)),
-                          Text(food.name, style: TextStyle(fontSize: 14, color: Color(0xFF303030))),
+                          Text(food.name,
+                              style: TextStyle(
+                                  fontSize: 14, color: Color(0xFF303030))),
                           Expanded(child: Container()),
                           Text(
                             '¥${food.price * food.count}',
-                            style: TextStyle(fontSize: 16, color: Color(0xFFF01414)),
+                            style: TextStyle(
+                                fontSize: 16, color: Color(0xFFF01414)),
                           ),
                           Padding(padding: EdgeInsets.only(left: 6)),
                           AddFoot(food: food),
@@ -94,23 +100,18 @@ class ShopCarList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () {
-        Navigator.pop(context);
-      },
-      child: Align(
-        alignment: Alignment.bottomCenter,
-        child: Container(
-          height: 260,
-          color: CupertinoColors.white,
-          child: Column(
-            children: <Widget>[
-              _buildTitle(context),
-              Expanded(
-                child: _buildList(context),
-              ),
-            ],
-          ),
+    return Align(
+      alignment: Alignment.bottomCenter,
+      child: Container(
+        height: 260,
+        color: CupertinoColors.white,
+        child: Column(
+          children: <Widget>[
+            _buildTitle(context),
+            Expanded(
+              child: _buildList(context),
+            ),
+          ],
         ),
       ),
     );

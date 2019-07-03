@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 
-
 // 评分组件
 
 class RatingsWidget extends StatelessWidget {
@@ -16,7 +15,12 @@ class RatingsWidget extends StatelessWidget {
   // 间隔
   final double padding;
 
-  RatingsWidget({Key key, this.count = 5, this.ratingValue = 4.5, this.starSize = 16.0, this.padding = 4})
+  RatingsWidget(
+      {Key key,
+      this.count = 5,
+      this.ratingValue = 4.5,
+      this.starSize = 16.0,
+      this.padding = 4})
       : assert(count >= 1),
         assert(ratingValue >= 0.0 && ratingValue <= count),
         super(key: key);
@@ -42,7 +46,8 @@ class RatingsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Widget> children = [];
     for (int i = 0; i < count; i++) {
-      children.add(Image.asset(_computeAssets(i), width: starSize, height: starSize));
+      children.add(
+          Image.asset(_computeAssets(i), width: starSize, height: starSize));
       if (i < count - 1) {
         children.add(Padding(padding: EdgeInsets.only(left: padding)));
       }

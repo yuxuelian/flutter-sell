@@ -32,16 +32,25 @@ class _CustomTabBarState extends State<CustomTabBar> {
 
   List<Widget> _buildChildren(BuildContext context) {
     int index = 0;
-    return widget.itemValues.map((value) => _buildItem(context, value, index++)).toList();
+    return widget.itemValues
+        .map((value) => _buildItem(context, value, index++))
+        .toList();
   }
 
-  Widget _buildItem(BuildContext context, final String value, final int index) => Expanded(
+  Widget _buildItem(
+          BuildContext context, final String value, final int index) =>
+      Expanded(
         child: CupertinoButton(
           minSize: double.infinity,
           pressedOpacity: 1,
           padding: EdgeInsets.all(0),
           borderRadius: BorderRadius.circular(0),
-          child: Text(value, style: TextStyle(fontSize: widget.fontSize, color: _currentIndex == index ? widget.selectedColor : widget.color)),
+          child: Text(value,
+              style: TextStyle(
+                  fontSize: widget.fontSize,
+                  color: _currentIndex == index
+                      ? widget.selectedColor
+                      : widget.color)),
           onPressed: () {
             setState(() {
               _currentIndex = index;

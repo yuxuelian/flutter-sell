@@ -52,7 +52,11 @@ class _ShopCarState extends State<ShopCar> with WidgetsBindingObserver {
                     shape: BoxShape.circle,
                   ),
                 ),
-                Image.asset(isHideCounter ? 'assets/icon_shop_car.png' : 'assets/icon_shop_car_white.png', width: 32),
+                Image.asset(
+                    isHideCounter
+                        ? 'assets/icon_shop_car.png'
+                        : 'assets/icon_shop_car_white.png',
+                    width: 32),
                 Positioned(
                   top: 0,
                   right: 0,
@@ -68,7 +72,8 @@ class _ShopCarState extends State<ShopCar> with WidgetsBindingObserver {
                       ),
                       child: Text(
                         count > 99 ? '99+' : count.toString(),
-                        style: TextStyle(fontSize: 10, color: CupertinoColors.white),
+                        style: TextStyle(
+                            fontSize: 10, color: CupertinoColors.white),
                       ),
                     ),
                   ),
@@ -103,7 +108,13 @@ class _ShopCarState extends State<ShopCar> with WidgetsBindingObserver {
           return Row(
             children: <Widget>[
               Padding(padding: EdgeInsets.only(left: 80)),
-              Text('¥$totalPrice', style: TextStyle(fontSize: 16, color: totalPrice > 0 ? CupertinoColors.white : Color(0xFF606060), fontWeight: FontWeight.bold)),
+              Text('¥$totalPrice',
+                  style: TextStyle(
+                      fontSize: 16,
+                      color: totalPrice > 0
+                          ? CupertinoColors.white
+                          : Color(0xFF606060),
+                      fontWeight: FontWeight.bold)),
               Padding(padding: EdgeInsets.only(left: 10)),
               Container(
                 height: 30,
@@ -111,7 +122,11 @@ class _ShopCarState extends State<ShopCar> with WidgetsBindingObserver {
                 color: Color(0xFF606060),
               ),
               Padding(padding: EdgeInsets.only(left: 10)),
-              Text('另需配送费¥4元', style: TextStyle(fontSize: 12, color: Color(0xFF606060), fontWeight: FontWeight.bold)),
+              Text('另需配送费¥4元',
+                  style: TextStyle(
+                      fontSize: 12,
+                      color: Color(0xFF606060),
+                      fontWeight: FontWeight.bold)),
               Expanded(child: Container()),
               Container(
                 width: 100,
@@ -121,7 +136,9 @@ class _ShopCarState extends State<ShopCar> with WidgetsBindingObserver {
                   giveText,
                   style: TextStyle(
                     fontSize: 12,
-                    color: totalPrice < 20 ? Color(0xFF606060) : CupertinoColors.white,
+                    color: totalPrice < 20
+                        ? Color(0xFF606060)
+                        : CupertinoColors.white,
                     fontWeight: FontWeight.bold,
                   ),
                 ),

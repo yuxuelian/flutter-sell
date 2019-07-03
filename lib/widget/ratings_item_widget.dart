@@ -27,8 +27,12 @@ class RatingsItem extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text('g*********0', style: TextStyle(fontSize: 14, color: Color(0xFF303030))),
-                    Text('2016-07-23 10:46', style: TextStyle(fontSize: 14, color: Color(0xFF303030))),
+                    Text('g*********0',
+                        style:
+                            TextStyle(fontSize: 14, color: Color(0xFF303030))),
+                    Text('2016-07-23 10:46',
+                        style:
+                            TextStyle(fontSize: 14, color: Color(0xFF303030))),
                   ],
                 ),
                 Padding(padding: EdgeInsets.only(top: 4)),
@@ -36,11 +40,14 @@ class RatingsItem extends StatelessWidget {
                   children: <Widget>[
                     RatingsWidget(),
                     Padding(padding: EdgeInsets.only(left: 6)),
-                    Text('70', style: TextStyle(fontSize: 14, color: Color(0x60909090))),
+                    Text('70',
+                        style:
+                            TextStyle(fontSize: 14, color: Color(0x60909090))),
                   ],
                 ),
                 Padding(padding: EdgeInsets.only(top: 10)),
-                Text('送货速度蜗牛一样', style: TextStyle(fontSize: 14, color: Color(0xFF303030))),
+                Text('送货速度蜗牛一样',
+                    style: TextStyle(fontSize: 14, color: Color(0xFF303030))),
               ],
             ),
           ),
